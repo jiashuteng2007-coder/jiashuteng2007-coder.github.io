@@ -16,7 +16,6 @@ export interface SiteContent {
     disciplines: string[];
   };
   about: {
-    label: string;
     title: string;
     paragraphs: string[];
   };
@@ -25,7 +24,6 @@ export interface SiteContent {
     projects: Array<{ title: string; status: string }>;
   };
   featured: {
-    label: string;
     title: string;
     readLabel: string;
     articles: Array<{
@@ -48,15 +46,7 @@ export interface SiteContent {
     title: string;
     items: Array<{ title: string; year: string; detail?: string }>;
   };
-  beyond: {
-    label: string;
-    title: string;
-    introduction: string;
-    interests: Array<{ name: string; detail: string; index: string }>;
-    note: string;
-  };
   contact: {
-    label: string;
     title: string;
     emailLabel: string;
     footer: string;
@@ -86,7 +76,6 @@ export const content: Record<Locale, SiteContent> = {
       disciplines: ["Waveguide QED", "Trapped-Ion Quantum Computing", "Quantum Error Correction"],
     },
     about: {
-      label: "About",
       title: "About",
       paragraphs: [
         "I am an undergraduate student in Applied Physics at Tianjin University, interested in waveguide quantum electrodynamics, quantum optics, and non-Hermitian physics.",
@@ -103,7 +92,6 @@ export const content: Record<Locale, SiteContent> = {
       ],
     },
     featured: {
-      label: "Featured / Media",
       title: "Featured / Media",
       readLabel: "Read on WeChat",
       articles: [
@@ -155,36 +143,7 @@ export const content: Record<Locale, SiteContent> = {
         },
       ],
     },
-    beyond: {
-      label: "Beyond Research",
-      title: "Beyond Research",
-      introduction:
-        "Sport gives me a counterweight to sustained intellectual work: a way to release pressure, test my limits, and learn responsibility within a team.",
-      interests: [
-        {
-          index: "01",
-          name: "Football",
-          detail:
-            "From a center forward in high school to a defender at university, football taught me to play with greater responsibility, intensity, and trust in others.",
-        },
-        {
-          index: "02",
-          name: "Track & Field",
-          detail:
-            "High jump 1st place, mixed relay 3rd place, and long jump 4th place at Tianjin University’s 5th Wang Zhengting Cup.",
-        },
-        {
-          index: "03",
-          name: "Skiing",
-          detail:
-            "I enjoy the direct encounter with speed, balance, focus, and the confidence required to commit to a line.",
-        },
-      ],
-      note:
-        "I believe growth is often quiet and nonlinear. When a result falls short, I reflect, keep training, and give ability time to surface.",
-    },
     contact: {
-      label: "Contact",
       title: "Contact",
       emailLabel: "Email",
       footer: "Designed and built with care in Tianjin.",
@@ -206,7 +165,6 @@ export const content: Record<Locale, SiteContent> = {
       disciplines: ["波导 QED", "离子阱量子计算", "量子纠错"],
     },
     about: {
-      label: "关于我",
       title: "关于我",
       paragraphs: [
         "我是天津大学理学院应用物理专业本科生，研究兴趣包括波导量子电动力学、量子光学与非厄米物理。",
@@ -223,7 +181,6 @@ export const content: Record<Locale, SiteContent> = {
       ],
     },
     featured: {
-      label: "人物与文字",
       title: "人物与文字",
       readLabel: "在微信中阅读",
       articles: [
@@ -275,35 +232,7 @@ export const content: Record<Locale, SiteContent> = {
         },
       ],
     },
-    beyond: {
-      label: "研究之外",
-      title: "研究之外",
-      introduction:
-        "运动是持续脑力工作之外的平衡：它让我释放压力、挑战极限，也让我在集体中理解责任、拼劲与信任。",
-      interests: [
-        {
-          index: "01",
-          name: "足球",
-          detail:
-            "从高中时的中锋到大学里的后卫，位置的变化让我学会承担更多责任，也在竞争与协作中收获了友谊。",
-        },
-        {
-          index: "02",
-          name: "田径",
-          detail:
-            "天津大学第五届“王正廷杯”男子跳高第一名、师生混合接力第三名、男子跳远第四名。",
-        },
-        {
-          index: "03",
-          name: "滑雪",
-          detail: "我享受与速度、平衡和专注的直接交锋，也享受在作出路线选择后坚定投入的状态。",
-        },
-      ],
-      note:
-        "我相信成长往往安静而非线性。未能如愿时，反思、继续训练，并给自己的能力足够时间慢慢上浮。",
-    },
     contact: {
-      label: "联系",
       title: "联系",
       emailLabel: "邮箱",
       footer: "设计与构建于天津。",
