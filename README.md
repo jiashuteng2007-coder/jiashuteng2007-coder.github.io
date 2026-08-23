@@ -1,6 +1,6 @@
 # Jiashu Teng — Academic Homepage
 
-Bilingual academic homepage for Jiashu Teng, built with Astro and published as a static site.
+Bilingual academic homepage for Jiashu Teng, built with Astro and deployed to GitHub Pages at [jiashuteng.com](https://jiashuteng.com).
 
 ## Local development
 
@@ -17,4 +17,6 @@ The English homepage is available at `/` and the Chinese homepage at `/zh/`.
 npm run build
 ```
 
-GitHub Pages and the `jiashuteng.com` custom domain will be configured after the local design and content are approved.
+## Deployment
+
+Pushing to `main` triggers the GitHub Pages workflow in `.github/workflows/deploy.yml`. The production build uses `https://jiashuteng.com` as its canonical site URL and includes the custom-domain declaration from `public/CNAME`.
