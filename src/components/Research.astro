@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { research } = content;
+---
+
+<section class="section research-section" id="research" aria-labelledby="research-heading">
+  <div class="section-heading">
+    <h2 id="research-heading">{research.label}</h2>
+  </div>
+  <div class="research-list">
+    {research.projects.map((project) => (
+      <article class="research-row">
+        <p class="research-title">{project.title}</p>
+        <p class="status">{project.status}</p>
+      </article>
+    ))}
+  </div>
+</section>

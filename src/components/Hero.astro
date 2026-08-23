@@ -1,0 +1,24 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const { hero } = content;
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">
+      {hero.name}
+      {content.locale === "zh" && <span>{hero.chineseName}</span>}
+    </h1>
+    <p class="hero-role">{hero.role}<br /><span>{hero.affiliation}</span></p>
+  </div>
+  <div class="discipline-orbit" aria-label={content.locale === "en" ? "Research interests" : "研究兴趣"}>
+    <p class="discipline-label">{content.locale === "en" ? "Research interests" : "研究兴趣"}</p>
+    <p class="discipline-items">{hero.disciplines.join(" · ")}</p>
+  </div>
+</section>

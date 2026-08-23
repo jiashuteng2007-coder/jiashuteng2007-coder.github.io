@@ -1,0 +1,20 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { about } = Astro.props.content;
+---
+
+<section class="section about-section" id="about" aria-labelledby="about-title">
+  <div class="section-heading">
+    <h2 id="about-title">{about.title}</h2>
+  </div>
+  <div class="section-body about-body">
+    <div class="prose">
+      {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    </div>
+  </div>
+</section>

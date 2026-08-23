@@ -1,0 +1,40 @@
+---
+import type { Locale } from "../data/site";
+import { content } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "./SiteHeader.astro";
+import Hero from "./Hero.astro";
+import About from "./About.astro";
+import Research from "./Research.astro";
+import Featured from "./Featured.astro";
+import EducationHonors from "./EducationHonors.astro";
+import Contact from "./Contact.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const page = content[locale];
+const title = locale === "en" ? "Jiashu Teng · Applied Physics" : "滕佳树 · 应用物理";
+const description = page.about.paragraphs[0];
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={description}
+  alternatePath={page.alternatePath}
+>
+  <div class="page-shell">
+    <SiteHeader content={page} />
+    <main id="main">
+      <Hero content={page} />
+      <About content={page} />
+      <EducationHonors content={page} />
+      <Research content={page} />
+      <Featured content={page} />
+    </main>
+    <Contact content={page} />
+  </div>
+</BaseLayout>

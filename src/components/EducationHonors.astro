@@ -1,0 +1,51 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { education, honors } = Astro.props.content;
+---
+
+<div class="credentials" aria-label={`${education.label} · ${honors.label}`}>
+  <section class="section education-block" id="education" aria-labelledby="education-title">
+    <div class="section-heading">
+      <h2 id="education-title">{education.title}</h2>
+    </div>
+    <div class="section-body">
+      <div class="education-record">
+        <div class="institution-line">
+          <p class="institution">{education.institution}</p>
+          <p class="period">{education.period}</p>
+        </div>
+        <div class="education-details">
+          <p class="degree">{education.degree}</p>
+          <dl class="metric-list">
+            {education.metrics.map((metric) => (
+              <div>
+                <dd>{metric.value}</dd>
+                <dt>{metric.label}</dt>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section honors-block" id="honors" aria-labelledby="honors-title">
+    <div class="section-heading">
+      <h2 id="honors-title">{honors.title}</h2>
+    </div>
+    <ul class="honors-list">
+      {honors.items.map((honor) => (
+        <li>
+          <span class="honor-title">{honor.title}</span>
+          <span class="honor-detail">
+            <time datetime={honor.year}>{honor.year}</time>{honor.detail && ` · ${honor.detail}`}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </section>
+</div>

@@ -1,0 +1,21 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { content } = Astro.props;
+const homePath = content.locale === "en" ? "/" : "/zh/";
+---
+
+<a class="skip-link" href="#main">{content.skipLabel}</a>
+<header class="site-header">
+  <a class="monogram" href={homePath} aria-label="Jiashu Teng home">
+    JT<span>.</span>
+  </a>
+  <nav aria-label={content.locale === "en" ? "Primary navigation" : "主导航"}>
+    <a href={homePath}>{content.navigation.home}</a>
+    <a class="language-link" href={content.alternatePath}>{content.alternateLabel}</a>
+  </nav>
+</header>

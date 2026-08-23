@@ -1,0 +1,31 @@
+---
+import type { SiteContent } from "../data/site";
+
+interface Props {
+  content: SiteContent;
+}
+
+const { featured } = Astro.props.content;
+---
+
+<section class="section editorial-section" id="featured" aria-labelledby="featured-title">
+  <div class="section-heading">
+    <h2 id="featured-title">{featured.title}</h2>
+  </div>
+  <div class="feature-list">
+    {featured.articles.map((article) => (
+      <article class="feature-card">
+        <div class="feature-meta">
+          <p>{article.source}</p>
+          <a href={article.href} target="_blank" rel="noreferrer">
+            {featured.readLabel}<span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <div class="feature-copy">
+          <h3>{article.title}</h3>
+          <p>{article.summary}</p>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
