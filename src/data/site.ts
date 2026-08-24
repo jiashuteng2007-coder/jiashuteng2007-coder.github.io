@@ -91,7 +91,7 @@ export const content: Record<Locale, SiteContent> = {
       ],
     },
     featured: {
-      title: "Featured / Media",
+      title: "Media Coverage",
       readLabel: "Read on WeChat",
       articles: [
         {
