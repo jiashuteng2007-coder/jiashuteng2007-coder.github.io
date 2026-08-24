@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Quiet window</title>
+  <desc id="desc">A restrained editorial illustration of morning light falling through a window.</desc>
+  <rect width="640" height="400" fill="#dbe9e5"/>
+  <rect x="58" y="46" width="344" height="246" fill="#f8f5eb" stroke="#174b4e" stroke-width="3"/>
+  <path d="M230 46v246M58 168h344" stroke="#174b4e" stroke-width="3"/>
+  <path d="M402 46l142 0v246H402z" fill="#007b83" opacity=".78"/>
+  <path d="M402 292L544 46v246z" fill="#f1c77d" opacity=".74"/>
+  <path d="M0 330h640v70H0z" fill="#173d3f"/>
+  <path d="M86 330l120-108 144 108z" fill="#f4e9cf" opacity=".75"/>
+  <circle cx="508" cy="86" r="20" fill="#f8f5eb" opacity=".9"/>
+</svg>

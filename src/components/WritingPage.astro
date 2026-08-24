@@ -1,0 +1,48 @@
+---
+import type { Locale } from "../data/site";
+import { content } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const page = content[locale];
+const writing = page.writing;
+const alternatePath = locale === "en" ? "/zh/writing/" : "/writing/";
+const title = locale === "en" ? "Writing · Jiashu Teng" : "随笔 · 滕佳树";
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={writing.introduction}
+  alternatePath={alternatePath}
+>
+  <div class="page-shell writing-shell">
+    <SiteHeader content={page} currentPage="writing" alternatePath={alternatePath} />
+    <main id="main" class="writing-main">
+      <header class="writing-intro">
+        <p class="section-label">{locale === "en" ? "Notes & essays" : "札记与随笔"}</p>
+        <h1>{writing.title}</h1>
+        <p>{writing.introduction}</p>
+      </header>
+
+      <section class="writing-list" aria-label={locale === "en" ? "Writing collection" : "随笔列表"}>
+        {writing.entries.map((entry, index) => (
+          <article class="writing-entry" style={`--entry-index: ${index}`}>
+            <div class="writing-image-frame">
+              <img src={entry.image} alt={entry.imageAlt} width="640" height="400" loading={index === 0 ? "eager" : "lazy"} />
+            </div>
+            <div class="writing-entry-copy">
+              <h2>{entry.title}</h2>
+              <p>{entry.excerpt}</p>
+            </div>
+          </article>
+        ))}
+      </section>
+    </main>
+  </div>
+</BaseLayout>

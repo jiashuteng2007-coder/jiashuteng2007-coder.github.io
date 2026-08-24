@@ -19,6 +19,7 @@ const { featured } = Astro.props.content;
           <p>{article.source}</p>
         </div>
         <h3>{article.title}</h3>
+        <p class="feature-year">{article.year}</p>
         <a class="feature-read" href={article.href} target="_blank" rel="noreferrer">
           <strong>{featured.readLabel}</strong><span aria-hidden="true">↗</span>
         </a>

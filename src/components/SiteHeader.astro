@@ -3,10 +3,13 @@ import type { SiteContent } from "../data/site";
 
 interface Props {
   content: SiteContent;
+  currentPage?: "home" | "writing";
+  alternatePath?: string;
 }
 
-const { content } = Astro.props;
+const { content, currentPage = "home", alternatePath = content.alternatePath } = Astro.props;
 const homePath = content.locale === "en" ? "/" : "/zh/";
+const writingPath = content.locale === "en" ? "/writing/" : "/zh/writing/";
 ---
 
 <a class="skip-link" href="#main">{content.skipLabel}</a>
@@ -15,7 +18,8 @@ const homePath = content.locale === "en" ? "/" : "/zh/";
     JT<span>.</span>
   </a>
   <nav aria-label={content.locale === "en" ? "Primary navigation" : "主导航"}>
-    <a href={homePath}>{content.navigation.home}</a>
-    <a class="language-link" href={content.alternatePath}>{content.alternateLabel}</a>
+    <a href={homePath} aria-current={currentPage === "home" ? "page" : undefined}>{content.navigation.home}</a>
+    <a href={writingPath} aria-current={currentPage === "writing" ? "page" : undefined}>{content.navigation.writing}</a>
+    <a class="language-link" href={alternatePath}>{content.alternateLabel}</a>
   </nav>
 </header>

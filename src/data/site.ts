@@ -7,6 +7,7 @@ export interface SiteContent {
   skipLabel: string;
   navigation: {
     home: string;
+    writing: string;
   };
   hero: {
     name: string;
@@ -29,7 +30,18 @@ export interface SiteContent {
     articles: Array<{
       source: string;
       title: string;
+      year: string;
       href: string;
+    }>;
+  };
+  writing: {
+    title: string;
+    introduction: string;
+    entries: Array<{
+      image: string;
+      imageAlt: string;
+      title: string;
+      excerpt: string;
     }>;
   };
   education: {
@@ -66,13 +78,14 @@ export const content: Record<Locale, SiteContent> = {
     skipLabel: "Skip to content",
     navigation: {
       home: "Home",
+      writing: "Writing",
     },
     hero: {
       name: shared.name,
       chineseName: shared.chineseName,
       role: "Undergraduate in Applied Physics",
       affiliation: "School of Science, Tianjin University",
-      disciplines: ["Waveguide QED", "Trapped-Ion Quantum Computing", "Quantum Error Correction"],
+      disciplines: ["Waveguide QED", "Quantum Optics", "Quantum Information"],
     },
     about: {
       title: "About",
@@ -95,14 +108,44 @@ export const content: Record<Locale, SiteContent> = {
       readLabel: "Read on WeChat",
       articles: [
         {
-          source: "Beiyang Jingzhao · 北洋京招",
+          source: "TJU Beijing Admissions",
           title: "Yesterday as Prologue, Today as a New Chapter",
+          year: "2025",
           href: "https://mp.weixin.qq.com/s/8Zduj427vciIXn8DgINI7Q",
         },
         {
-          source: "TJU Sports · 天大体育",
+          source: "TJU Sports Department",
           title: "Give It Time, and Greater Heights Will Come",
+          year: "2026",
           href: "https://mp.weixin.qq.com/s/2QEH8jLzdwqqsMdjxV6vsA",
+        },
+      ],
+    },
+    writing: {
+      title: "Writing",
+      introduction:
+        "A space for notes, observations, and essays beyond the laboratory. The pieces below are editorial placeholders while the first entries take shape.",
+      entries: [
+        {
+          image: "/images/writing/quiet-window.svg",
+          imageAlt: "Editorial placeholder illustration of a quiet window and morning light",
+          title: "Notes from an Unhurried Morning",
+          excerpt:
+            "Placeholder — a future reflection on attention, ordinary rituals, and the ideas that arrive when the day is allowed to begin slowly.",
+        },
+        {
+          image: "/images/writing/field-notes.svg",
+          imageAlt: "Editorial placeholder illustration of an open notebook in a green landscape",
+          title: "Between Equations and Everyday Life",
+          excerpt:
+            "Placeholder — a short essay about carrying a researcher's curiosity into books, conversations, movement, and the world outside the lab.",
+        },
+        {
+          image: "/images/writing/evening-track.svg",
+          imageAlt: "Editorial placeholder illustration of an athletics track at dusk",
+          title: "Learning to Measure Progress Differently",
+          excerpt:
+            "Placeholder — notes on patience, training, and why meaningful progress is often easier to recognize in retrospect.",
         },
       ],
     },
@@ -151,6 +194,7 @@ export const content: Record<Locale, SiteContent> = {
     skipLabel: "跳至正文",
     navigation: {
       home: "首页",
+      writing: "随笔",
     },
     hero: {
       name: shared.chineseName,
@@ -182,12 +226,39 @@ export const content: Record<Locale, SiteContent> = {
         {
           source: "北洋京招",
           title: "昨日之序，今日之章",
+          year: "2025",
           href: "https://mp.weixin.qq.com/s/8Zduj427vciIXn8DgINI7Q",
         },
         {
           source: "天大体育",
           title: "给时间以耐心，让高度如期而至",
+          year: "2026",
           href: "https://mp.weixin.qq.com/s/2QEH8jLzdwqqsMdjxV6vsA",
+        },
+      ],
+    },
+    writing: {
+      title: "Writing",
+      introduction:
+        "这里会收录一些实验室之外的观察、札记与随笔。下方内容暂为版式占位，第一批文字正在慢慢成形。",
+      entries: [
+        {
+          image: "/images/writing/quiet-window.svg",
+          imageAlt: "安静窗边与晨光的编辑占位插图",
+          title: "一个不慌不忙的清晨",
+          excerpt: "占位内容——未来会写下关于专注、日常仪式，以及让一天缓慢开始时自然浮现的想法。",
+        },
+        {
+          image: "/images/writing/field-notes.svg",
+          imageAlt: "绿色原野中一本打开笔记本的编辑占位插图",
+          title: "在公式与日常之间",
+          excerpt: "占位内容——一篇关于如何把研究中的好奇心带进阅读、谈话、运动与实验室之外生活的短文。",
+        },
+        {
+          image: "/images/writing/evening-track.svg",
+          imageAlt: "暮色中田径跑道的编辑占位插图",
+          title: "换一种方式衡量进步",
+          excerpt: "占位内容——记录耐心、训练，以及为什么真正重要的进步往往要在回望时才看得清楚。",
         },
       ],
     },
