@@ -1,6 +1,7 @@
 ---
 import type { Locale } from "../data/site";
 import { content } from "../data/site";
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteHeader from "./SiteHeader.astro";
 
@@ -11,8 +12,19 @@ interface Props {
 const { locale } = Astro.props;
 const page = content[locale];
 const writing = page.writing;
+const publishedEntries = (await getCollection("writing"))
+  .filter((entry) => entry.data.locale === locale)
+  .map((entry) => entry.data)
+  .sort((a, b) => b.date.localeCompare(a.date));
+const writingEntries = [...publishedEntries, ...writing.entries];
 const alternatePath = locale === "en" ? "/zh/writing/" : "/writing/";
 const title = locale === "en" ? "Writing · Jiashu Teng" : "随笔 · 滕佳树";
+const writingBase = locale === "en" ? "/writing" : "/zh/writing";
+const dateFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+  year: "numeric",
+  month: locale === "en" ? "long" : "2-digit",
+  day: "2-digit",
+});
 ---
 
 <BaseLayout
@@ -31,13 +43,21 @@ const title = locale === "en" ? "Writing · Jiashu Teng" : "随笔 · 滕佳树"
       </header>
 
       <section class="writing-list" aria-label={locale === "en" ? "Writing collection" : "随笔列表"}>
-        {writing.entries.map((entry, index) => (
+        {writingEntries.map((entry, index) => (
           <article class="writing-entry" style={`--entry-index: ${index}`}>
             <div class="writing-image-frame">
               <img src={entry.image} alt={entry.imageAlt} width="640" height="400" loading={index === 0 ? "eager" : "lazy"} />
             </div>
             <div class="writing-entry-copy">
-              <h2>{entry.title}</h2>
+              <time class="writing-entry-date" datetime={entry.date}>
+                {dateFormatter.format(new Date(`${entry.date}T00:00:00`))}
+              </time>
+              <h2>
+                <a href={`${writingBase}/${entry.slug}/`}>
+                  <span>{entry.title}</span>
+                  <span class="writing-link-arrow" aria-hidden="true">↗</span>
+                </a>
+              </h2>
               <p>{entry.excerpt}</p>
             </div>
           </article>

@@ -1,0 +1,23 @@
+---
+import WritingArticle from "../../../components/WritingArticle.astro";
+import { content } from "../../../data/site";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const markdownEntries = (await getCollection("writing")).filter((entry) => entry.data.locale === "zh");
+  return [
+    ...content.zh.writing.entries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry, markdownEntry: undefined },
+    })),
+    ...markdownEntries.map((markdownEntry) => ({
+      params: { slug: markdownEntry.data.slug },
+      props: { entry: markdownEntry.data, markdownEntry },
+    })),
+  ];
+}
+
+const { entry, markdownEntry } = Astro.props;
+---
+
+<WritingArticle locale="zh" entry={entry} markdownEntry={markdownEntry} />

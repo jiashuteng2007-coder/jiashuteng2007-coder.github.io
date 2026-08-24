@@ -1,0 +1,76 @@
+---
+import type { Locale, SiteContent } from "../data/site";
+import { content } from "../data/site";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  locale: Locale;
+  entry: SiteContent["writing"]["entries"][number];
+  markdownEntry?: CollectionEntry<"writing">;
+}
+
+const { locale, entry, markdownEntry } = Astro.props;
+const page = content[locale];
+const writingPath = locale === "en" ? "/writing/" : "/zh/writing/";
+const alternateEntries = content[locale === "en" ? "zh" : "en"].writing.entries;
+const hasAlternate = alternateEntries.some((candidate) => candidate.slug === entry.slug);
+const alternatePath = hasAlternate
+  ? locale === "en" ? `/zh/writing/${entry.slug}/` : `/writing/${entry.slug}/`
+  : locale === "en" ? "/zh/writing/" : "/writing/";
+const title = `${entry.title} · ${locale === "en" ? "Jiashu Teng" : "滕佳树"}`;
+const MarkdownContent = markdownEntry ? (await render(markdownEntry)).Content : undefined;
+const dateFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
+  year: "numeric",
+  month: locale === "en" ? "long" : "2-digit",
+  day: "2-digit",
+});
+---
+
+<BaseLayout
+  locale={locale}
+  title={title}
+  description={entry.excerpt}
+  alternatePath={alternatePath}
+>
+  <div class="page-shell article-shell">
+    <SiteHeader content={page} currentPage="writing" alternatePath={alternatePath} />
+    <main id="main" class="article-main">
+      <a class="article-back" href={writingPath}>
+        <span aria-hidden="true">←</span>
+        {locale === "en" ? "All writing" : "返回随笔"}
+      </a>
+
+      <article>
+        <header class="article-header">
+          <p class="section-label">{locale === "en" ? "Notes & essays" : "札记与随笔"}</p>
+          <time class="article-date" datetime={entry.date}>
+            {dateFormatter.format(new Date(`${entry.date}T00:00:00`))}
+          </time>
+          <h1>{entry.title}</h1>
+          <p class="article-deck">{entry.excerpt}</p>
+        </header>
+
+        {!MarkdownContent && (
+          <figure class="article-hero">
+            <img src={entry.image} alt={entry.imageAlt} width="1120" height="700" />
+          </figure>
+        )}
+
+        <div class:list={["article-body", { "article-body-published": MarkdownContent }]}>
+          {MarkdownContent ? (
+            <MarkdownContent />
+          ) : (
+            <p class="article-status">
+              {locale === "en"
+                ? "This essay is being prepared. The complete text will appear here soon."
+                : "这篇文章正在整理中，完整正文将在这里发布。"}
+          </p>
+          )}
+        </div>
+      </article>
+    </main>
+  </div>
+</BaseLayout>

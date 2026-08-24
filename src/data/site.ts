@@ -38,6 +38,8 @@ export interface SiteContent {
     title: string;
     introduction: string;
     entries: Array<{
+      slug: string;
+      date: string;
       image: string;
       imageAlt: string;
       title: string;
@@ -127,6 +129,8 @@ export const content: Record<Locale, SiteContent> = {
         "A space for notes, observations, and essays beyond the laboratory. The pieces below are editorial placeholders while the first entries take shape.",
       entries: [
         {
+          slug: "notes-from-an-unhurried-morning",
+          date: "2026-08-24",
           image: "/images/writing/quiet-window.svg",
           imageAlt: "Editorial placeholder illustration of a quiet window and morning light",
           title: "Notes from an Unhurried Morning",
@@ -134,6 +138,8 @@ export const content: Record<Locale, SiteContent> = {
             "Placeholder — a future reflection on attention, ordinary rituals, and the ideas that arrive when the day is allowed to begin slowly.",
         },
         {
+          slug: "between-equations-and-everyday-life",
+          date: "2026-08-24",
           image: "/images/writing/field-notes.svg",
           imageAlt: "Editorial placeholder illustration of an open notebook in a green landscape",
           title: "Between Equations and Everyday Life",
@@ -141,6 +147,8 @@ export const content: Record<Locale, SiteContent> = {
             "Placeholder — a short essay about carrying a researcher's curiosity into books, conversations, movement, and the world outside the lab.",
         },
         {
+          slug: "measuring-progress-differently",
+          date: "2026-08-24",
           image: "/images/writing/evening-track.svg",
           imageAlt: "Editorial placeholder illustration of an athletics track at dusk",
           title: "Learning to Measure Progress Differently",
@@ -240,21 +248,19 @@ export const content: Record<Locale, SiteContent> = {
     writing: {
       title: "Writing",
       introduction:
-        "这里会收录一些实验室之外的观察、札记与随笔。下方内容暂为版式占位，第一批文字正在慢慢成形。",
+        "这里收录一些实验室之外的观察、札记与随笔，也记录音乐、阅读与日常生活中偶然停驻的时刻。",
       entries: [
         {
-          image: "/images/writing/quiet-window.svg",
-          imageAlt: "安静窗边与晨光的编辑占位插图",
-          title: "一个不慌不忙的清晨",
-          excerpt: "占位内容——未来会写下关于专注、日常仪式，以及让一天缓慢开始时自然浮现的想法。",
-        },
-        {
+          slug: "between-equations-and-everyday-life",
+          date: "2026-08-24",
           image: "/images/writing/field-notes.svg",
           imageAlt: "绿色原野中一本打开笔记本的编辑占位插图",
           title: "在公式与日常之间",
           excerpt: "占位内容——一篇关于如何把研究中的好奇心带进阅读、谈话、运动与实验室之外生活的短文。",
         },
         {
+          slug: "measuring-progress-differently",
+          date: "2026-08-24",
           image: "/images/writing/evening-track.svg",
           imageAlt: "暮色中田径跑道的编辑占位插图",
           title: "换一种方式衡量进步",
