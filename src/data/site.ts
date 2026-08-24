@@ -29,7 +29,6 @@ export interface SiteContent {
     articles: Array<{
       source: string;
       title: string;
-      summary: string;
       href: string;
     }>;
   };
@@ -98,15 +97,11 @@ export const content: Record<Locale, SiteContent> = {
         {
           source: "Beiyang Jingzhao · 北洋京招",
           title: "Yesterday as Prologue, Today as a New Chapter",
-          summary:
-            "A reflection on the transition from solving familiar problems in high school to navigating uncertainty, setbacks, and discovery at university.",
           href: "https://mp.weixin.qq.com/s/8Zduj427vciIXn8DgINI7Q",
         },
         {
           source: "TJU Sports · 天大体育",
           title: "Give It Time, and Greater Heights Will Come",
-          summary:
-            "On how football, track and field, and skiing cultivate release, confidence, competitive spirit, responsibility, and friendship.",
           href: "https://mp.weixin.qq.com/s/2QEH8jLzdwqqsMdjxV6vsA",
         },
       ],
@@ -187,15 +182,11 @@ export const content: Record<Locale, SiteContent> = {
         {
           source: "北洋京招",
           title: "昨日之序，今日之章",
-          summary:
-            "回望从高中到大学的转变：从熟悉的解题路径走向未知，在挫折、孤独与探索中逐步建立自己的秩序。",
           href: "https://mp.weixin.qq.com/s/8Zduj427vciIXn8DgINI7Q",
         },
         {
           source: "天大体育",
           title: "给时间以耐心，让高度如期而至",
-          summary:
-            "足球、田径和滑雪既是压力的出口，也是速度、竞争、自信、责任与友谊共同塑造性格的赛场。",
           href: "https://mp.weixin.qq.com/s/2QEH8jLzdwqqsMdjxV6vsA",
         },
       ],

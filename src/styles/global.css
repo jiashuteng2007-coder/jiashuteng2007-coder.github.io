@@ -282,17 +282,13 @@ nav .language-link {
 
 .feature-card {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-columns: 180px minmax(0, 1fr) auto;
   gap: 1.5rem;
-  align-items: start;
+  align-items: baseline;
   padding: 0.35rem 0;
 }
 
-.feature-meta {
-  display: block;
-}
-
-.feature-meta p {
+.feature-source p {
   margin: 0;
   color: var(--muted);
   font-size: var(--text-label);
@@ -309,21 +305,12 @@ nav .language-link {
   line-height: 1.35;
 }
 
-.feature-copy > p {
-  margin: 0.25rem 0 0;
-  color: var(--muted);
-  font-size: var(--text-body);
-  line-height: 1.55;
-}
-
-.feature-meta a {
+.feature-read {
   display: inline-flex;
   gap: 0.4rem;
   align-items: center;
-  margin-top: 0.25rem;
   color: var(--accent);
   font-size: var(--text-label);
-  font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: color 160ms ease;
@@ -550,8 +537,8 @@ html:lang(zh-CN) .hero-role span,
 html:lang(zh-CN) .discipline-label,
 html:lang(zh-CN) .section-heading h2,
 html:lang(zh-CN) .contact-section > h2,
-html:lang(zh-CN) .feature-meta p,
-html:lang(zh-CN) .feature-meta a,
+html:lang(zh-CN) .feature-source p,
+html:lang(zh-CN) .feature-read,
 html:lang(zh-CN) .footer-line p {
   letter-spacing: 0;
 }
@@ -577,7 +564,7 @@ html:lang(zh-CN) .footer-line p {
   }
 
   .feature-card {
-    grid-template-columns: 150px minmax(0, 1fr);
+    grid-template-columns: 150px minmax(0, 1fr) auto;
   }
 
 }
@@ -633,10 +620,11 @@ html:lang(zh-CN) .footer-line p {
 
   .feature-card {
     grid-template-columns: 1fr;
+    gap: 0.3rem;
   }
 
-  .feature-meta {
-    justify-content: space-between;
+  .feature-read {
+    margin-top: 0.2rem;
   }
 
   .honors-list li {

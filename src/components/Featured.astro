@@ -15,16 +15,13 @@ const { featured } = Astro.props.content;
   <div class="feature-list">
     {featured.articles.map((article) => (
       <article class="feature-card">
-        <div class="feature-meta">
+        <div class="feature-source">
           <p>{article.source}</p>
-          <a href={article.href} target="_blank" rel="noreferrer">
-            {featured.readLabel}<span aria-hidden="true">↗</span>
-          </a>
         </div>
-        <div class="feature-copy">
-          <h3>{article.title}</h3>
-          <p>{article.summary}</p>
-        </div>
+        <h3>{article.title}</h3>
+        <a class="feature-read" href={article.href} target="_blank" rel="noreferrer">
+          <strong>{featured.readLabel}</strong><span aria-hidden="true">↗</span>
+        </a>
       </article>
     ))}
   </div>
