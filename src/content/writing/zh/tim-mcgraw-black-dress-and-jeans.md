@@ -1,14 +1,14 @@
 ---
-locale: zh
+locale: both
 slug: tim-mcgraw-black-dress-and-jeans
 title: Tim McGraw的黑色礼裙与牛仔裤
 date: "2026-05-05"
 excerpt: Tim McGraw好就好在旋律的渲染力和歌词的的画面感
 image: /images/writing/tim-mcgraw-cover.jpg
 imageAlt: Taylor Swift首张同名专辑封面
+imagePosition: center 18%
 ---
-
-![Taylor Swift首张同名专辑封面](/images/writing/tim-mcgraw-cover.jpg)
+Tim McGraw好就好在旋律的渲染力和歌词的的画面感
 
 还记得第一次听是在几年前的某个夏天， 那会我还没成年，懂得物理比较少，抽象能力也远不如现在，还在以流的形式触摸世界。
 

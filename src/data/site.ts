@@ -42,6 +42,9 @@ export interface SiteContent {
       date: string;
       image: string;
       imageAlt: string;
+      imageFit?: "cover" | "contain";
+      imageBackground?: string;
+      imagePosition?: string;
       title: string;
       excerpt: string;
     }>;
@@ -126,36 +129,8 @@ export const content: Record<Locale, SiteContent> = {
     writing: {
       title: "Writing",
       introduction:
-        "A space for notes, observations, and essays beyond the laboratory. The pieces below are editorial placeholders while the first entries take shape.",
-      entries: [
-        {
-          slug: "notes-from-an-unhurried-morning",
-          date: "2026-08-24",
-          image: "/images/writing/quiet-window.svg",
-          imageAlt: "Editorial placeholder illustration of a quiet window and morning light",
-          title: "Notes from an Unhurried Morning",
-          excerpt:
-            "Placeholder — a future reflection on attention, ordinary rituals, and the ideas that arrive when the day is allowed to begin slowly.",
-        },
-        {
-          slug: "between-equations-and-everyday-life",
-          date: "2026-08-24",
-          image: "/images/writing/field-notes.svg",
-          imageAlt: "Editorial placeholder illustration of an open notebook in a green landscape",
-          title: "Between Equations and Everyday Life",
-          excerpt:
-            "Placeholder — a short essay about carrying a researcher's curiosity into books, conversations, movement, and the world outside the lab.",
-        },
-        {
-          slug: "measuring-progress-differently",
-          date: "2026-08-24",
-          image: "/images/writing/evening-track.svg",
-          imageAlt: "Editorial placeholder illustration of an athletics track at dusk",
-          title: "Learning to Measure Progress Differently",
-          excerpt:
-            "Placeholder — notes on patience, training, and why meaningful progress is often easier to recognize in retrospect.",
-        },
-      ],
+        "A space for observations, notes, and essays beyond the laboratory, including moments from music, reading, and everyday life.",
+      entries: [],
     },
     education: {
       label: "Education",
@@ -192,7 +167,7 @@ export const content: Record<Locale, SiteContent> = {
     contact: {
       title: "Contact",
       emailLabel: "Email",
-      footer: "Designed and built with care in Tianjin.",
+      footer: "Designed and built with care in Beijing.",
     },
   },
   zh: {
@@ -249,24 +224,7 @@ export const content: Record<Locale, SiteContent> = {
       title: "Writing",
       introduction:
         "这里收录一些实验室之外的观察、札记与随笔，也记录音乐、阅读与日常生活中偶然停驻的时刻。",
-      entries: [
-        {
-          slug: "between-equations-and-everyday-life",
-          date: "2026-08-24",
-          image: "/images/writing/field-notes.svg",
-          imageAlt: "绿色原野中一本打开笔记本的编辑占位插图",
-          title: "在公式与日常之间",
-          excerpt: "占位内容——一篇关于如何把研究中的好奇心带进阅读、谈话、运动与实验室之外生活的短文。",
-        },
-        {
-          slug: "measuring-progress-differently",
-          date: "2026-08-24",
-          image: "/images/writing/evening-track.svg",
-          imageAlt: "暮色中田径跑道的编辑占位插图",
-          title: "换一种方式衡量进步",
-          excerpt: "占位内容——记录耐心、训练，以及为什么真正重要的进步往往要在回望时才看得清楚。",
-        },
-      ],
+      entries: [],
     },
     education: {
       label: "教育背景",
@@ -303,7 +261,7 @@ export const content: Record<Locale, SiteContent> = {
     contact: {
       title: "联系",
       emailLabel: "邮箱",
-      footer: "设计与构建于天津。",
+      footer: "设计与构建于北京。",
     },
   },
 };

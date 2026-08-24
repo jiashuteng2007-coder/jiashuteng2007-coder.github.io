@@ -16,7 +16,8 @@ const { locale, entry, markdownEntry } = Astro.props;
 const page = content[locale];
 const writingPath = locale === "en" ? "/writing/" : "/zh/writing/";
 const alternateEntries = content[locale === "en" ? "zh" : "en"].writing.entries;
-const hasAlternate = alternateEntries.some((candidate) => candidate.slug === entry.slug);
+const hasAlternate = markdownEntry?.data.locale === "both"
+  || alternateEntries.some((candidate) => candidate.slug === entry.slug);
 const alternatePath = hasAlternate
   ? locale === "en" ? `/zh/writing/${entry.slug}/` : `/writing/${entry.slug}/`
   : locale === "en" ? "/zh/writing/" : "/writing/";
@@ -50,7 +51,7 @@ const dateFormatter = new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN
             {dateFormatter.format(new Date(`${entry.date}T00:00:00`))}
           </time>
           <h1>{entry.title}</h1>
-          <p class="article-deck">{entry.excerpt}</p>
+          {!MarkdownContent && <p class="article-deck">{entry.excerpt}</p>}
         </header>
 
         {!MarkdownContent && (

@@ -4,7 +4,8 @@ import { content } from "../../data/site";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const markdownEntries = (await getCollection("writing")).filter((entry) => entry.data.locale === "en");
+  const markdownEntries = (await getCollection("writing"))
+    .filter((entry) => entry.data.locale === "en" || entry.data.locale === "both");
   return [
     ...content.en.writing.entries.map((entry) => ({
     params: { slug: entry.slug },
