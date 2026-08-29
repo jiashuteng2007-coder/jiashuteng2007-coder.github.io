@@ -7,6 +7,7 @@ export interface SiteContent {
   skipLabel: string;
   navigation: {
     home: string;
+    research: string;
     writing: string;
   };
   hero: {
@@ -83,6 +84,7 @@ export const content: Record<Locale, SiteContent> = {
     skipLabel: "Skip to content",
     navigation: {
       home: "Home",
+      research: "Research",
       writing: "Writing",
     },
     hero: {
@@ -177,6 +179,7 @@ export const content: Record<Locale, SiteContent> = {
     skipLabel: "跳至正文",
     navigation: {
       home: "首页",
+      research: "科研",
       writing: "随笔",
     },
     hero: {

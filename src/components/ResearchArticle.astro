@@ -1,0 +1,52 @@
+---
+import type { Locale } from "../data/site";
+import { content } from "../data/site";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  locale: Locale;
+  entry: CollectionEntry<"research">;
+}
+
+const { locale, entry } = Astro.props;
+const page = content[locale];
+const researchPath = locale === "en" ? "/research/" : "/zh/research/";
+const publicSlug = entry.data.slug.replace(/-(en|zh)$/, "");
+const alternatePath = locale === "en"
+  ? `/zh/research/${publicSlug}/`
+  : `/research/${publicSlug}/`;
+const title = `${entry.data.title} · ${locale === "en" ? "Jiashu Teng" : "滕佳树"}`;
+const MarkdownContent = (await render(entry)).Content;
+---
+
+<BaseLayout locale={locale} title={title} description={entry.data.excerpt} alternatePath={alternatePath}>
+  <div class="page-shell research-article-shell">
+    <SiteHeader content={page} currentPage="research" alternatePath={alternatePath} />
+    <main id="main" class="research-article-main">
+      <a class="article-back" href={researchPath}>
+        <span aria-hidden="true">←</span>
+        {locale === "en" ? "All research" : "返回科研"}
+      </a>
+
+      <article>
+        <header class="research-article-header">
+          <p class="section-label">{entry.data.status}</p>
+          <p class="research-article-period">{entry.data.period}</p>
+          <h1>{entry.data.title}</h1>
+          <p class="research-article-deck">{entry.data.excerpt}</p>
+        </header>
+
+        <figure class="research-article-hero">
+          <img src={entry.data.image} alt={entry.data.imageAlt} width="1120" height="700" />
+        </figure>
+
+        <div class="article-body research-article-body">
+          <MarkdownContent />
+        </div>
+      </article>
+    </main>
+  </div>
+</BaseLayout>

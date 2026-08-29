@@ -1,0 +1,110 @@
+---
+import type { Locale } from "../data/site";
+import { content } from "../data/site";
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "./SiteHeader.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const page = content[locale];
+const entries = (await getCollection("research"))
+  .filter((entry) => entry.data.locale === locale)
+  .sort((a, b) => a.data.slug.localeCompare(b.data.slug));
+const alternatePath = locale === "en" ? "/zh/research/" : "/research/";
+const title = locale === "en" ? "Research · Jiashu Teng" : "科研 · 滕佳树";
+const description = locale === "en"
+  ? "A record of completed and ongoing research projects, including work in development and results ready to share."
+  : "集中记录已经完成与正在进行的科研项目，以及适合公开的阶段性工作。";
+const researchBase = locale === "en" ? "/research" : "/zh/research";
+const publicSlug = (slug: string) => slug.replace(/-(en|zh)$/, "");
+---
+
+<BaseLayout locale={locale} title={title} description={description} alternatePath={alternatePath}>
+  <div class="page-shell research-index-shell">
+    <SiteHeader content={page} currentPage="research" alternatePath={alternatePath} />
+    <main id="main" class="research-index-main">
+      <header class="research-index-intro">
+        <p class="section-label">{locale === "en" ? "Projects & work" : "项目与工作"}</p>
+        <h1>{locale === "en" ? "Research" : "科研"}</h1>
+        <p>{description}</p>
+      </header>
+
+      <div class="research-filter" role="group" aria-label={locale === "en" ? "Filter research projects" : "筛选科研项目"}>
+        <span>{locale === "en" ? "Show" : "筛选"}</span>
+        <div class="research-filter-options">
+          <button type="button" data-research-filter="all" aria-pressed="true">
+            {locale === "en" ? "All" : "全部"}
+          </button>
+          <button type="button" data-research-filter="completed" aria-pressed="false">
+            {locale === "en" ? "Completed" : "已完成"}
+          </button>
+          <button type="button" data-research-filter="pending" aria-pressed="false">
+            {locale === "en" ? "Pending" : "待完成"}
+          </button>
+        </div>
+      </div>
+
+      <section class="research-index-list" aria-label={locale === "en" ? "Research projects" : "科研项目列表"}>
+        {entries.map((entry, index) => (
+          <article class="research-index-entry" data-research-state={entry.data.state} style={`--entry-index: ${index}`}>
+            <a class="research-index-image" href={`${researchBase}/${publicSlug(entry.data.slug)}/`} tabindex="-1" aria-hidden="true">
+              <img
+                src={entry.data.image}
+                alt=""
+                width="640"
+                height="400"
+                loading={index === 0 ? "eager" : "lazy"}
+              />
+            </a>
+            <div class="research-index-copy">
+              <div class="research-index-meta">
+                <span>{entry.data.period}</span>
+                <span aria-hidden="true">·</span>
+                <span>{entry.data.status}</span>
+              </div>
+              <h2>
+                <a href={`${researchBase}/${publicSlug(entry.data.slug)}/`}>
+                  <span>{entry.data.title}</span>
+                  <span class="research-index-arrow" aria-hidden="true">↗</span>
+                </a>
+              </h2>
+              <p>{entry.data.excerpt}</p>
+            </div>
+          </article>
+        ))}
+        <p class="research-filter-empty" hidden>
+          {locale === "en" ? "No projects in this category yet." : "该分类暂时还没有项目。"}
+        </p>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<script>
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>("[data-research-filter]");
+  const researchEntries = document.querySelectorAll<HTMLElement>("[data-research-state]");
+  const emptyState = document.querySelector<HTMLElement>(".research-filter-empty");
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.researchFilter ?? "all";
+      let visibleCount = 0;
+
+      filterButtons.forEach((candidate) => {
+        candidate.setAttribute("aria-pressed", String(candidate === button));
+      });
+
+      researchEntries.forEach((entry) => {
+        const visible = filter === "all" || entry.dataset.researchState === filter;
+        entry.hidden = !visible;
+        if (visible) visibleCount += 1;
+      });
+
+      if (emptyState) emptyState.hidden = visibleCount !== 0;
+    });
+  });
+</script>

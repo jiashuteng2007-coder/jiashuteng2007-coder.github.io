@@ -18,4 +18,19 @@ const writing = defineCollection({
   }),
 });
 
-export const collections = { writing };
+const research = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/research" }),
+  schema: z.object({
+    locale: z.enum(["en", "zh"]),
+    slug: z.string(),
+    title: z.string(),
+    period: z.string(),
+    excerpt: z.string(),
+    image: z.string(),
+    imageAlt: z.string(),
+    status: z.string(),
+    state: z.enum(["completed", "pending"]),
+  }),
+});
+
+export const collections = { writing, research };

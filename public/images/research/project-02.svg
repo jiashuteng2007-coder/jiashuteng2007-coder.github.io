@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="title desc">
+  <title id="title">Coupled network</title>
+  <desc id="desc">A sparse network of coupled scientific nodes on a pale background.</desc>
+  <rect width="640" height="400" fill="#f1f3ef"/>
+  <g fill="none" stroke="#007b83" stroke-width="1.6" opacity=".5">
+    <path d="M104 250 216 122l112 154 104-166 108 126"/>
+    <path d="M104 250 328 276 540 236" opacity=".45"/>
+    <path d="M216 122 432 110" opacity=".32"/>
+    <path d="M216 122 540 236" stroke-dasharray="4 10" opacity=".42"/>
+    <path d="M104 250 432 110" stroke-dasharray="2 12" opacity=".35"/>
+  </g>
+  <g fill="#fff" stroke="#007b83" stroke-width="2">
+    <circle cx="104" cy="250" r="26"/>
+    <circle cx="216" cy="122" r="36"/>
+    <circle cx="328" cy="276" r="30"/>
+    <circle cx="432" cy="110" r="23"/>
+    <circle cx="540" cy="236" r="34"/>
+  </g>
+  <g fill="#007b83">
+    <circle cx="104" cy="250" r="5"/>
+    <circle cx="216" cy="122" r="7"/>
+    <circle cx="328" cy="276" r="6"/>
+    <circle cx="432" cy="110" r="5"/>
+    <circle cx="540" cy="236" r="7"/>
+  </g>
+  <g fill="none" stroke="#171719" opacity=".14">
+    <circle cx="320" cy="200" r="146"/>
+    <circle cx="320" cy="200" r="178" stroke-dasharray="2 12"/>
+  </g>
+</svg>

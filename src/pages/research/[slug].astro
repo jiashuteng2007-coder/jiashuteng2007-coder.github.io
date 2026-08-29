@@ -1,0 +1,17 @@
+---
+import ResearchArticle from "../../components/ResearchArticle.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = (await getCollection("research"))
+    .filter((entry) => entry.data.locale === "en");
+  return entries.map((entry) => ({
+    params: { slug: entry.data.slug.replace(/-en$/, "") },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<ResearchArticle locale="en" entry={entry} />
