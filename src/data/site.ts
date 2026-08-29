@@ -184,7 +184,7 @@ export const content: Record<Locale, SiteContent> = {
       chineseName: shared.name,
       role: "应用物理专业本科生",
       affiliation: "天津大学理学院",
-      disciplines: ["波导 QED", "离子阱量子计算", "量子纠错"],
+      disciplines: ["波导 QED", "量子光学", "量子信息"],
     },
     about: {
       title: "关于我",
@@ -203,7 +203,7 @@ export const content: Record<Locale, SiteContent> = {
       ],
     },
     featured: {
-      title: "人物与文字",
+      title: "媒体报道",
       readLabel: "在微信中阅读",
       articles: [
         {
@@ -221,7 +221,7 @@ export const content: Record<Locale, SiteContent> = {
       ],
     },
     writing: {
-      title: "Writing",
+      title: "随笔",
       introduction:
         "这里收录一些实验室之外的观察、札记与随笔，也记录音乐、阅读与日常生活中偶然停驻的时刻。",
       entries: [],
