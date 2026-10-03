@@ -760,6 +760,19 @@ html:lang(zh-CN) .research-index-intro h1 {
   transform: scale(1.025);
 }
 
+.research-index-image--contain {
+  background: #fff;
+}
+
+.research-index-image--contain img {
+  object-fit: contain;
+  padding: 0.75rem;
+}
+
+.research-index-entry:hover .research-index-image--contain img {
+  transform: none;
+}
+
 .research-index-copy {
   max-width: 610px;
 }
@@ -886,6 +899,23 @@ html:lang(zh-CN) .research-index-intro h1 {
   object-fit: cover;
 }
 
+.research-article-hero--contain {
+  aspect-ratio: auto;
+  background: #fff;
+}
+
+.research-article-hero--contain img {
+  height: auto;
+  object-fit: contain;
+}
+
+.research-article-hero figcaption {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: var(--text-label);
+  text-align: center;
+}
+
 .research-article-body {
   padding-left: 1.25rem;
   color: var(--muted);
@@ -896,6 +926,10 @@ html:lang(zh-CN) .research-index-intro h1 {
 
 .research-article-body p {
   margin: 0;
+}
+
+.research-article-body p + p {
+  margin-top: 1.25em;
 }
 
 .article-main {

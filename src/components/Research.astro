@@ -16,7 +16,9 @@ const { research } = content;
   <div class="research-list">
     {research.projects.map((project) => (
       <article class="research-row">
-        <p class="research-title">{project.title}</p>
+        <p class="research-title">
+          {project.href ? <a href={project.href}>{project.title}</a> : project.title}
+        </p>
         <p class="status">{project.status}</p>
       </article>
     ))}

@@ -23,7 +23,7 @@ export interface SiteContent {
   };
   research: {
     label: string;
-    projects: Array<{ title: string; status: string }>;
+    projects: Array<{ title: string; status: string; href?: string }>;
   };
   featured: {
     title: string;
@@ -105,8 +105,9 @@ export const content: Record<Locale, SiteContent> = {
       label: "Research",
       projects: [
         {
-          title: "Local-Probe Spectroscopy of a Tunable Artificial Atomic Cavity",
-          status: "Ongoing research · Manuscript in preparation",
+          title: "Collective Light–Matter Interactions in Waveguide QED",
+          status: "Manuscript in preparation · Not yet published",
+          href: "/research/project-01/",
         },
       ],
     },
@@ -200,8 +201,9 @@ export const content: Record<Locale, SiteContent> = {
       label: "研究",
       projects: [
         {
-          title: "可调人工原子腔的局域探测光谱",
-          status: "在研项目 · 论文撰写中",
+          title: "波导量子电动力学中的集体光与物质相互作用",
+          status: "稿件整理中 · 尚未公开发表",
+          href: "/zh/research/project-01/",
         },
       ],
     },

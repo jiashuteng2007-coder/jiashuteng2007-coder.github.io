@@ -34,13 +34,14 @@ const MarkdownContent = (await render(entry)).Content;
       <article>
         <header class="research-article-header">
           <p class="section-label">{entry.data.status}</p>
-          <p class="research-article-period">{entry.data.period}</p>
+          {entry.data.period && <p class="research-article-period">{entry.data.period}</p>}
           <h1>{entry.data.title}</h1>
           <p class="research-article-deck">{entry.data.excerpt}</p>
         </header>
 
-        <figure class="research-article-hero">
-          <img src={entry.data.image} alt={entry.data.imageAlt} width="1120" height="700" />
+        <figure class:list={["research-article-hero", { "research-article-hero--contain": entry.data.imageFit === "contain" }]}>
+          <img src={entry.data.image} alt={entry.data.imageAlt} width={entry.data.imageWidth ?? 1120} height={entry.data.imageHeight ?? 700} />
+          {entry.data.imageCaption && <figcaption>{entry.data.imageCaption}</figcaption>}
         </figure>
 
         <div class="article-body research-article-body">

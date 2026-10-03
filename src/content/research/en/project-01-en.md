@@ -1,13 +1,20 @@
 ---
 locale: en
 slug: project-01-en
-title: Project 01
-period: Timeline forthcoming
-excerpt: This project entry is being prepared. Its research question, approach, and current progress will be added here.
-image: /images/research/project-01.svg
-imageAlt: Abstract scientific illustration with concentric wavefronts and a central probe
-status: Coming soon
+title: Collective Light–Matter Interactions in Waveguide QED
+excerpt: Collective modes, light–matter coupling, and their spectral signatures in waveguide-mediated atomic cavities.
+image: /images/research/waveguide-qed.png
+imageAlt: Two atomic pairs form mirrors in a waveguide, with a central probe atom coupled to both waveguides
+imageFit: contain
+imageWidth: 2400
+imageHeight: 1000
+imageCaption: Schematic of a waveguide-coupled atomic system.
+status: Manuscript in preparation · Not yet published
 state: pending
 ---
 
-Project details are being prepared. This page will be updated with the research context, methods, current progress, and relevant outputs when they are ready to share.
+Quantum emitters coupled to a waveguide can interact collectively through the guided field, forming modes with distinct radiative properties. Modes with suppressed radiation can help retain quantum excitations, but are also more difficult to excite and probe spectroscopically.
+
+This project examines the connections between collective modes, light–matter coupling, and spectral response in waveguide-mediated atomic cavities. It considers how the radiative properties of these modes affect their excitation and detection, and how coherent interactions and interference appear in the spectrum.
+
+Details of the scheme and results will be added when ready for public release.
