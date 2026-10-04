@@ -1,13 +1,20 @@
 ---
 locale: zh
 slug: project-02-zh
-title: 项目 02
-period: 时间待补充
-excerpt: 该项目条目正在整理中，后续将在这里简要介绍研究动机、工作方法与项目状态。
-image: /images/research/project-02.svg
-imageAlt: 由耦合节点与连接路径组成的抽象科研插图
-status: 即将补充
+title: 离子阱系统稳定性
+excerpt: 面向离子阱量子计算，开展离子阱系统稳定性的理论与数值研究。
+image: /images/research/ion-trap-thermal.png
+imageAlt: 二维离子晶体的数值平衡构型，保留原始热运动着色
+imageFit: contain
+imageWidth: 1870
+imageHeight: 285
+imageCaption: 二维离子晶体的数值平衡构型，颜色表示热运动幅度的相对差异。
+status: 进行中
 state: pending
 ---
 
-项目内容正在整理中。适合公开后，本页将补充研究背景、研究方法、当前进展与相关成果。
+面向离子阱量子计算，开展离子阱系统稳定性的理论与数值研究，参与计算模型与模拟工具的开发，并进行数值检验和数据分析。
+
+项目正在进行中，具体研究方案与未发表结果暂不公开。
+
+**研究关键词：** 离子阱量子计算 · 系统稳定性 · 数值模拟

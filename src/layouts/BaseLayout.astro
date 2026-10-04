@@ -26,6 +26,7 @@ const chineseUrl = locale === "zh" ? canonicalUrl : alternateUrl;
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
     <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonicalUrl} />
     {englishUrl && <link rel="alternate" hreflang="en" href={englishUrl} />}
     {chineseUrl && <link rel="alternate" hreflang="zh-CN" href={chineseUrl} />}
