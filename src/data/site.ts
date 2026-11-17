@@ -92,22 +92,27 @@ export const content: Record<Locale, SiteContent> = {
       chineseName: shared.chineseName,
       role: "Undergraduate in Applied Physics",
       affiliation: "School of Science, Tianjin University",
-      disciplines: ["Waveguide QED", "Quantum Optics", "Quantum Information"],
+      disciplines: ["Waveguide QED", "Quantum Computing", "Science of AI"],
     },
     about: {
       title: "About",
       paragraphs: [
-        "I am an undergraduate student in Applied Physics at Tianjin University, interested in waveguide quantum electrodynamics, quantum optics, and non-Hermitian physics.",
-        "My current work uses analytical modeling and numerical computation to connect collective light–matter interactions with experimentally accessible local signals.",
+        "I am an undergraduate student in Applied Physics at Tianjin University, interested in waveguide QED, quantum computing, and the science of AI.",
+        "My current research combines analytical modeling and numerical simulation in two areas: probing atomic cavity QED through an auxiliary waveguide, and studying ion-crystal stability with optical-tweezer control and full-micromotion simulations.",
       ],
     },
     research: {
       label: "Research",
       projects: [
         {
-          title: "Collective Light–Matter Interactions in Waveguide QED",
+          title: "Optical detection of atomic cavity QED in a two-waveguide system",
           status: "Manuscript in preparation · Not yet published",
           href: "/research/project-01/",
+        },
+        {
+          title: "Stability of Trapped-Ion Systems",
+          status: "In progress",
+          href: "/research/project-02/",
         },
       ],
     },
@@ -153,7 +158,8 @@ export const content: Record<Locale, SiteContent> = {
       items: [
         {
           title: "National Scholarship for Undergraduate Students",
-          year: "2025",
+          year: "2025, 2026",
+          detail: "Two consecutive years",
         },
         {
           title: "First Prize, Chinese Mathematics Competitions",
@@ -188,22 +194,27 @@ export const content: Record<Locale, SiteContent> = {
       chineseName: shared.name,
       role: "应用物理专业本科生",
       affiliation: "天津大学理学院",
-      disciplines: ["波导 QED", "量子光学", "量子信息"],
+      disciplines: ["波导 QED", "量子计算", "Science of AI"],
     },
     about: {
       title: "关于我",
       paragraphs: [
-        "我是天津大学理学院应用物理专业本科生，研究兴趣包括波导量子电动力学、量子光学与非厄米物理。",
-        "目前，我通过解析建模与数值计算，尝试把集体光–物质相互作用与实验可读出的局域信号联系起来。",
+        "我是天津大学理学院应用物理专业本科生，研究兴趣包括波导 QED、量子计算与 Science of AI。",
+        "目前，我结合解析建模与数值模拟开展两项研究：通过辅助波导探测原子腔 QED，以及利用光镊调控与全微运动模拟研究离子晶体的稳定性。",
       ],
     },
     research: {
       label: "研究",
       projects: [
         {
-          title: "波导量子电动力学中的集体光与物质相互作用",
+          title: "Optical detection of atomic cavity QED in a two-waveguide system",
           status: "稿件整理中 · 尚未公开发表",
           href: "/zh/research/project-01/",
+        },
+        {
+          title: "离子阱系统稳定性",
+          status: "进行中",
+          href: "/zh/research/project-02/",
         },
       ],
     },
@@ -249,7 +260,8 @@ export const content: Record<Locale, SiteContent> = {
       items: [
         {
           title: "本科生国家奖学金",
-          year: "2025",
+          year: "2025、2026",
+          detail: "连续两年",
         },
         {
           title: "全国大学生数学竞赛省级一等奖",
